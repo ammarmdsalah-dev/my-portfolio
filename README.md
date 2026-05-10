@@ -3,7 +3,7 @@
 A personal portfolio website that showcases my full stack projects, technical skills, and development experience.
 
 ## Live Demo
-https://yourusername.github.io/portfolio
+
 
 ## About Me
 I am a Full Stack Developer with a strong interest in building practical and user-friendly web applications. I focus on writing clean code and creating efficient solutions for real-world problems.
