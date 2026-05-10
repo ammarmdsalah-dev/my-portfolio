@@ -55,5 +55,5 @@ A responsive web application for managing daily tasks. Users can add, update, an
 - VS Code
 
 ## Contact
-- Email: your-email@example.com
-- LinkedIn: https://linkedin.com/in/yourprofile
+- Email:  ammar.mdsalah@gmail.com
+- LinkedIn: https://www.linkedin.com/in/ammarmosalah
