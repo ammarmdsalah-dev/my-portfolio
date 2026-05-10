@@ -1,0 +1,718 @@
+/* =====================================================
+   FONT IMPORT
+   Gets fonts from Google Fonts (needs internet)
+===================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* =====================================================
+   RESET - removes all default browser spacing
+   * means "apply to every single element"
+===================================================== */
+* {
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+
+/* =====================================================
+   HEADER
+   position: fixed  → stays at top even when scrolling
+   z-index: 999     → appears above everything else
+   padding: 15px 5% → 5% left/right works on all screens
+===================================================== */
+header {
+    background-color: #0f172a;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+}
+
+.logo {
+    text-decoration: none;
+    color: #e5e7eb;
+    font-weight: 700;
+    font-size: 1.8em;
+}
+
+
+/* =====================================================
+   DESKTOP NAVIGATION LINKS
+===================================================== */
+.navegation a {
+    text-decoration: none;
+    color: #e5e7eb;
+    font-weight: 500;
+    font-size: 1.1em;
+    padding-left: 30px;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect on nav links */
+.navegation a:hover {
+    color: #3b82f6;
+}
+
+/* JS adds this class to the active section's nav link */
+.navegation a.active-link {
+    color: #3b82f6;
+}
+
+
+/* =====================================================
+   HAMBURGER BUTTON
+   Only visible on mobile (display:none on desktop)
+   display: none → hidden
+   display: flex → visible (set in media query below)
+===================================================== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Each line of the hamburger icon */
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #e5e7eb;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* When JS adds class "open", animate lines into an X */
+.hamburger.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* =====================================================
+   MOBILE NAVIGATION DROPDOWN
+   Hidden by default - JS changes display to block
+===================================================== */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #0f172a;
+    padding: 20px;
+    z-index: 998;
+    border-top: 1px solid #1e293b;
+}
+
+.mobile-nav a {
+    display: block;
+    color: #e5e7eb;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 12px 0;
+    border-bottom: 1px solid #1e293b;
+    transition: color 0.3s ease;
+}
+
+.mobile-nav a:hover {
+    color: #3b82f6;
+}
+
+
+/* =====================================================
+   SECTIONS - General shared styles
+   padding: 100px 5% → top/bottom 100px, sides 5%
+   5% works on all screen sizes unlike fixed 200px
+===================================================== */
+section {
+    padding: 100px 5%;
+    display: block;
+    position: relative;
+    background-color: #0b1220;
+    box-shadow: 0 0 0 1px #1e293b;
+}
+
+
+/* =====================================================
+   HERO / MAIN SECTION
+===================================================== */
+.main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-image: url(عمار.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.main h2 {
+    color: #e5e7eb;
+    font-size: 1.4em;
+    font-weight: 500;
+}
+
+/* The span is where JS types "Web Developer" */
+.main h2 span {
+    color: #3b82f6;
+    font-size: 3em;
+    font-weight: 700;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.main h3 {
+    color: #cbd5e1;
+    font-size: 1.8em;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    max-width: 600px;
+}
+
+.main-bottom {
+    color: #e5e7eb;
+    background-color: #3b82f6;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    display: inline-block;
+    padding: 15px 35px;
+    letter-spacing: 1px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    transition: 0.4s ease;
+}
+
+.main-bottom:hover {
+    background-color: #2563eb;
+    transform: scale(1.1);
+}
+
+.social-icons a {
+    color: #e5e7eb;
+    font-size: 1.7em;
+    padding-right: 30px;
+    text-decoration: none;
+    display: inline-block;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #3b82f6;
+    transform: scale(1.1);
+}
+
+
+/* =====================================================
+   SECTION TITLES  (used in every section)
+===================================================== */
+.title {
+    display: flex;
+    justify-content: center;
+    color: #f8fafc;
+    gap: 10px;
+    font-size: 2.2em;
+    font-weight: 800;
+    margin-bottom: 50px;
+}
+
+.title span {
+    color: #3b82f6;
+}
+
+
+/* =====================================================
+   SERVICES SECTION
+===================================================== */
+#services {
+    scroll-margin-top: 70px;
+    border-top: 1px solid #1e293b;
+}
+
+.cards .content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: auto;
+    gap: 30px;
+}
+
+.service-card {
+    background-color: #111c2e;
+    padding: 35px 25px;
+    border-radius: 16px;
+    width: 280px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    border: 1px solid #1e293b;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    border-color: #3b82f6;
+    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.15);
+}
+
+.service-card .icon {
+    color: #3b82f6;
+    font-size: 6em;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.info {
+    text-align: center;
+}
+
+.info h3 {
+    color: #f8fafc;
+    font-size: 1.2em;
+    font-weight: 700;
+    margin: 10px;
+}
+
+.info p {
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   SCROLL-IN ANIMATION
+   Cards start invisible and moved down 30px.
+   JS adds class "visible" when card enters the screen.
+   Then CSS transition makes it slide up and fade in.
+===================================================== */
+.animate-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =====================================================
+   SKILLS SECTION  ← NEW
+===================================================== */
+#skills {
+    border-top: 1px solid #1e293b;
+    scroll-margin-top: 70px;
+}
+
+/* Flex container - wraps on small screens */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Each skill box */
+.skill-item {
+    background-color: #111c2e;
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 18px 28px;
+    text-align: center;
+    width: 160px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item:hover {
+    border-color: #3b82f6;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
+}
+
+.skill-item i {
+    font-size: 2.2em;
+    color: #3b82f6;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.skill-name {
+    display: block;
+    color: #f8fafc;
+    font-size: 0.95em;
+    font-weight: 600;
+}
+
+.skill-item small {
+    display: block;
+    color: #94a3b8;
+    font-size: 0.78em;
+    margin-top: 4px;
+    line-height: 1.4;
+}
+
+/* Progress bar - the grey background bar */
+.skill-bar-wrap {
+    background-color: #1e293b;
+    border-radius: 10px;
+    height: 5px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+/* The blue fill inside - starts at width 0, JS animates it */
+.skill-bar {
+    height: 100%;
+    background-color: #3b82f6;
+    border-radius: 10px;
+    width: 0%;
+    transition: width 1s ease;
+}
+
+
+/* =====================================================
+   PROJECTS SECTION
+===================================================== */
+#projects {
+    border-top: 1px solid #1e293b;
+}
+
+.projects .content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.project-card {
+    background-color: #111c2e;
+    padding: 30px;
+    border-radius: 16px;
+    width: 23em;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    border: 1px solid #1e293b;
+    overflow: hidden;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    border-color: #3b82f6;
+    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.15);
+}
+
+.project-image img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-info {
+    padding: 20px 0 0;
+}
+
+.categori {
+    font-size: 0.8em;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.project-title {
+    display: flex;
+    justify-content: space-between;
+    color: #f8fafc;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.more-details {
+    text-decoration: none;
+    color: #3b82f6;
+    transition: color 0.3s ease;
+}
+
+.more-details:hover {
+    color: #93c5fd;
+}
+
+
+/* =====================================================
+   CONTACT SECTION
+===================================================== */
+#contact {
+    border-top: 1px solid #1e293b;
+    scroll-margin-top: 70px;
+}
+
+/* Left info box */
+.contact-info-box {
+    background-color: #111c2e;
+    border: 1px solid #1e293b;
+    border-radius: 16px;
+    padding: 30px;
+    height: 100%;
+}
+
+.contact-info-box h4 {
+    color: #f8fafc;
+    font-size: 1.3em;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.contact-subtitle {
+    color: #94a3b8;
+    margin-bottom: 20px;
+}
+
+.contact-detail {
+    color: #cbd5e1;
+    margin-bottom: 12px;
+}
+
+.contact-icon {
+    color: #3b82f6;
+    margin-right: 8px;
+}
+
+/* Right form box */
+.contact-form-box {
+    background-color: #111c2e;
+    border: 1px solid #1e293b;
+    border-radius: 16px;
+    padding: 30px;
+}
+
+/* Bootstrap form-control overrides */
+#contact .form-control {
+    background-color: #0b1220;
+    border: 1px solid #1e293b;
+    color: #f8fafc;
+    border-radius: 10px;
+    padding: 12px 15px;
+    transition: border-color 0.3s ease;
+}
+
+#contact .form-control:focus {
+    background-color: #0b1220;
+    border-color: #3b82f6;
+    color: #f8fafc;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+#contact .form-control::placeholder {
+    color: #64748b;
+}
+
+/* Send button */
+.send-btn {
+    width: 100%;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.send-btn:hover {
+    background-color: #2563eb;
+}
+
+/* Success message - hidden by default */
+/* JS changes display to block when form is submitted */
+.success-msg {
+    display: none;
+    background-color: #16a34a;
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+footer {
+    background-color: #020617;
+    padding: 40px 0;
+    border-top: 1px solid #1e293b;
+}
+
+.footer-name {
+    color: #f8fafc;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.footer-text {
+    color: #94a3b8;
+    margin: 10px 0;
+}
+
+.footer-icons {
+    margin-bottom: 12px;
+}
+
+.footer-link {
+    color: #3b82f6;
+    margin: 0 10px;
+    font-size: 1.2em;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #93c5fd;
+}
+
+.footer-copy {
+    color: #64748b;
+    font-size: 0.9em;
+}
+
+
+/* =====================================================
+   SCROLL TO TOP BUTTON
+   Fixed at bottom-right corner
+   JS shows/hides it based on scroll position
+===================================================== */
+#scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.2em;
+    cursor: pointer;
+    display: none;
+    z-index: 9999;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#scroll-top:hover {
+    background-color: #2563eb;
+    transform: scale(1.1);
+}
+
+
+/* =====================================================
+   RESPONSIVE - TABLET (768px and below)
+   @media means: "only apply these styles when the
+   screen is 768px wide or less"
+===================================================== */
+@media (max-width: 768px) {
+
+    /* Hide desktop nav */
+    .navegation {
+        display: none;
+    }
+
+    /* Show hamburger button */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Smaller hero text */
+    .main h2 span {
+        font-size: 2em;
+    }
+
+    .main h3 {
+        font-size: 1.3em;
+    }
+
+    /* Cards take full width on mobile */
+    .service-card {
+        width: 100%;
+    }
+
+    .project-card {
+        width: 100%;
+    }
+
+    /* Skills grid smaller */
+    .skill-item {
+        width: 130px;
+    }
+
+    /* Section title smaller */
+    .title {
+        font-size: 1.7em;
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVE - SMALL PHONES (480px and below)
+===================================================== */
+@media (max-width: 480px) {
+
+    .main h2 {
+        font-size: 1.1em;
+    }
+
+    .main h2 span {
+        font-size: 1.7em;
+    }
+
+    .main h3 {
+        font-size: 1.1em;
+    }
+
+    .title {
+        font-size: 1.4em;
+    }
+
+    .skill-item {
+        width: 110px;
+        padding: 14px 16px;
+    }
+}
